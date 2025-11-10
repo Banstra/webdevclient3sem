@@ -114,9 +114,8 @@ function absValue(x) {
 }
 
 function randomNumber(min, max) {
-  min = Math.ceil(min);   
-  max = Math.floor(max);  
-  console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+ 
+  console.log(Math.floor(Math.random() * (max - min) + min))
 }
 
 function sampleArray(arr, count) {
@@ -128,18 +127,18 @@ function sampleArray(arr, count) {
   }
   console.log(result)
 }
-function myFilterArray(arr, filterFunc) {
+function myFilterArray(arr, letter) {
   const result = [];
   for (let i = 0; i < arr.length; i++) {
-    if (filterFunc(arr[i])) {
+    if (isFirstLetter(arr[i], letter)) {
       result.push(arr[i]);
     }
   }
   return result;
 }
 
-function isFirstV(name) {
-  console.log(name.startsWith('V'))
+function isFirstLetter(name, letter) {
+  return name.startsWith(letter)
 }
 
 
