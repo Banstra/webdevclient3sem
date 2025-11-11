@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lab3.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
   <title>Document</title>
 </head>
+
 <body>
+
+  <header>
+
+
+    <ul id="navbar">
+
+      <li><img src="Group198.png" class="logo_white" alt="logo"></li>
+      <li id="links_top">
+        <a href="">HOME</a>
+        <a href="">SERVICES</a>
+        <a href="">CONTACTS</a>
+      </li>
+      <li class="socials">
+        <img src="telegramblue.png" alt="telegram">
+        <img src="whatsappblue.png" alt="whatsapp">
+        <button onclick="window.test.showModal();">Регистрация</button>
+      </li>
+      <li><img id="burger" src="burger.png" alt="burger"></li>
+    </ul>
+
+
+  </header>
+
   <h1>Валидация</h1>
+
+  <dialog id="test">
+    <h2 id="modalTitle">Регистрация</h2>
+    <form id="registerForm" method="dialog">
+      <label for="nameInp">Имя<span>(обязательно)</span></label>
+      <input type="text" required id="nameInp" name="name" placeholder="Имя" aria-describedby="nameError" />
+      <div id="nameError" class="error-message" aria-live="polite" hidden></div>
+
+      <label for="emailInp">e-mail<span>(обязательно)</span></label>
+      <input type="email" required placeholder="test@gmail.com" id="emailInp" aria-describedby="emailError"
+        name="email" />
+      <div id="emailError" class="error-message" aria-live="polite" hidden></div>
+
+      <label for="passwordInp">Пароль<span>(обязательно, минимум 6 символов)</span></label>
+      <input type="password" required minlength="6" placeholder="Пароль" id="passwordInp"
+        aria-describedby="passwordError" onpointerdown="showPassword()" onpointerup="hidePassword()" name="password" />
+      <div id="passwordError" class="error-message" aria-live="polite" hidden></div>
+
+      <button type="submit">submit</button>
+      <input type="button" value="Показать пароль" class="show-pass-btn" aria-pressed="false"
+        onpointerdown="showPassword()" onpointerup="hidePassword()" />
+      <button type="button" id="closeModalBtn"
+        onclick="document.getElementById('registrationModal').close();">Закрыть</button>
+    </form>
+  </dialog>
+  <script src="lab3.js"></script>
 </body>
+
 </html>
