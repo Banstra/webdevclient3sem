@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lab5.css">
   <title>Document</title>
+
+  <style>
+    /* Минимальные стили для светлой и тёмной темы */
+    :root {
+      --bg: white;
+      --text: black;
+    }
+
+    .dark {
+      --bg: black;
+      --text: white;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+  </style>
+
+  <script>
+    // Синхронно ставим класс до отрисовки
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
 </head>
+
 <body>
+
+  <header>
+    <button id="themeToggle" aria-label="Переключить тему">🌙 Тёмная тема</button>
+  </header>
   <h1>Fetch</h1>
+  <h2>Тост</h2>
+  <button onclick="showToast('Это сообщение об успехе!', 'success')">Показать успех</button>
+  <button onclick="showToast('Произошла ошибка!', 'error')">Показать ошибку</button>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <hr>
+
+  <h2>Галерея</h2>
+
+  <section id="gallerySection">
+    <button id="refreshBtn" aria-label="Обновить галерею">Обновить галерею</button>
+    <div id="loader" aria-live="polite" aria-atomic="true" style="display:none;">Загрузка...</div>
+    <div id="gallery" role="list" aria-live="polite" aria-atomic="true"></div>
+    <div id="emptyMessage">Изображения не найдены</div>
+  </section>
+
+  <div id="toast-container2" aria-live="polite" aria-atomic="true"></div>
+  <hr>
+
+  <h2>Отправить температуру в аудитории</h2>
+
+  <form id="tempForm" aria-label="Форма отправки температуры">
+    <label for="classInput">Номер аудитории (класс)</label>
+    <input type="text" id="classInput" name="class" required aria-required="true" autocomplete="off" />
+
+    <label for="tempInput">Температура (°C)</label>
+    <input type="number" id="tempInput" name="temp" required aria-required="true" step="0.1" min="-50" max="50" />
+
+    <button type="submit" id="submitBtn">Отправить</button>
+  </form>
+
+  <div id="toast-container3" aria-live="polite" aria-atomic="true"></div>
+  <hr>
+  <h2>Переключение темы</h2>
+  <main style="padding: 1rem;">
+    <h1>Пример переключения темы</h1>
+    <p>Нажмите кнопку в шапке, чтобы переключить светлую и тёмную тему.</p>
+  </main>
+  <script src="lab5.js"></script>
 </body>
+
 </html>
