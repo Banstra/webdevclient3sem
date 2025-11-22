@@ -2,8 +2,8 @@ const passwordInp = document.getElementById('passwordInp');
 
     const modal = document.getElementById('test');
     const closeModalBtn = document.getElementById('closeModalBtn');
-    const form = document.getElementById('registerForm');
-    const passwordInput = document.getElementById('passwordInp');
+const form = document.getElementById('registerForm');
+const answer = document.getElementById('response');
 
 function showPassword() {
         passwordInp.type = 'text'
@@ -40,7 +40,7 @@ form.addEventListener('submit', (event) => {
   for (const [key, value] of formData.entries()) {
     data[key] = value;
   }
-
-  console.log(data);
+  answer.textContent = JSON.stringify(data, null, 2);
+  
 });
 

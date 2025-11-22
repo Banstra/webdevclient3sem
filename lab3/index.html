@@ -55,7 +55,7 @@
 
       <label for="passwordInp">Пароль<span>(обязательно, минимум 6 символов)</span></label>
       <input type="password" required minlength="6" placeholder="Пароль" id="passwordInp"
-        aria-describedby="passwordError" onpointerdown="showPassword()" onpointerup="hidePassword()" name="password" />
+        aria-describedby="passwordError" name="password" />
       <div id="passwordError" class="error-message" aria-live="polite" hidden></div>
 
       <button type="submit">submit</button>
@@ -65,6 +65,7 @@
         onclick="document.getElementById('registrationModal').close();">Закрыть</button>
     </form>
   </dialog>
+  <div id="response"></div>
   <script src="lab3.js"></script>
 </body>
 

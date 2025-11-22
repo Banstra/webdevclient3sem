@@ -55,7 +55,7 @@ function dislikeClick() {
 
  const cartCountElem = document.getElementById('cartCount');
   let cartCount = 0;
-
+const cartContent = document.getElementById('cartContentAnswer');
   document.querySelectorAll('.btn-add').forEach(button => {
     button.addEventListener('click', () => {
       cartCount++;
@@ -66,7 +66,8 @@ function dislikeClick() {
   document.querySelector('.cart-icon').addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      alert(`В корзине ${cartCount} товаров`);
+      
+      cartContent.textContent = `В корзине ${cartCount} товаров`;
     }
   });
 

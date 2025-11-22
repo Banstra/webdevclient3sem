@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
  
 let vm = null;
 
@@ -449,11 +450,11 @@ updateDisplays();
         const data = JSON.parse(e.data);
         gameData.addRound(data);
       } catch (err) {
-        console.error('Ошибка парсинга данных:', err);
+        alert('Ошибка парсинга данных:', err);
       }
     });
     eventSource.onerror = () => {
-      console.warn('Ошибка соединения или закрытие');
+      alert('Ошибка соединения или закрытие');
       // Можно отключить или попытаться переподключить
     };
     startBtn.disabled = true;

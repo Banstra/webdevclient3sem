@@ -72,7 +72,7 @@
         output.style.color = 'black';
       }
     } catch (e) {
-      output.textContent = 'Ошибка: ' + e.message;
+      output.textContent = `Ошибка: ${  e.message}`;
       output.style.color = 'red';
     }
 }
@@ -222,7 +222,7 @@
       status.className = 'status success';
       btn.disabled = false;
       craftingState[itemKey] = false;
-      return;
+      
     }
   }
 
