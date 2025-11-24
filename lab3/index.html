@@ -31,7 +31,7 @@
       <li class="socials">
         <img src="telegramblue.png" alt="telegram">
         <img src="whatsappblue.png" alt="whatsapp">
-        <button onclick="window.test.showModal();">Регистрация</button>
+        <button type="button" id="openModalBtn">Регистрация</button>
       </li>
       <li><img id="burger" src="burger.png" alt="burger"></li>
     </ul>
@@ -39,33 +39,44 @@
 
   </header>
 
-  <h1>Валидация</h1>
+  <main>
+    <h1>Валидация форм</h1>
 
-  <dialog id="test">
-    <h2 id="modalTitle">Регистрация</h2>
-    <form id="registerForm" method="dialog">
-      <label for="nameInp">Имя<span>(обязательно)</span></label>
-      <input type="text" required id="nameInp" name="name" placeholder="Имя" aria-describedby="nameError" />
-      <div id="nameError" class="error-message" aria-live="polite" hidden></div>
+    <dialog id="registrationModal">
+      <h2 id="modalTitle">Регистрация</h2>
+      <form id="registerForm" method="dialog" novalidate>
+        <div class="form-group">
+          <label for="nameInp">Имя <span>(обязательно)</span></label>
+          <input type="text" required id="nameInp" name="name" placeholder="Имя" aria-describedby="nameError" />
+          <div id="nameError" class="error-message" aria-live="polite" hidden></div>
+        </div>
 
-      <label for="emailInp">e-mail<span>(обязательно)</span></label>
-      <input type="email" required placeholder="test@gmail.com" id="emailInp" aria-describedby="emailError"
-        name="email" />
-      <div id="emailError" class="error-message" aria-live="polite" hidden></div>
+        <div class="form-group">
+          <label for="emailInp">e-mail <span>(обязательно)</span></label>
+          <input type="email" required id="emailInp" name="email" placeholder="test@gmail.com"
+            aria-describedby="emailError" />
+          <div id="emailError" class="error-message" aria-live="polite" hidden></div>
+        </div>
 
-      <label for="passwordInp">Пароль<span>(обязательно, минимум 6 символов)</span></label>
-      <input type="password" required minlength="6" placeholder="Пароль" id="passwordInp"
-        aria-describedby="passwordError" name="password" />
-      <div id="passwordError" class="error-message" aria-live="polite" hidden></div>
+        <div class="form-group">
+          <label for="passwordInp">Пароль <span>(обязательно, минимум 6 символов)</span></label>
+          <input type="password" required minlength="6" id="passwordInp" name="password" placeholder="Пароль"
+            aria-describedby="passwordError" />
+          <div id="passwordError" class="error-message" aria-live="polite" hidden></div>
+        </div>
 
-      <button type="submit">submit</button>
-      <input type="button" value="Показать пароль" class="show-pass-btn" aria-pressed="false"
-        onpointerdown="showPassword()" onpointerup="hidePassword()" />
-      <button type="button" id="closeModalBtn"
-        onclick="document.getElementById('registrationModal').close();">Закрыть</button>
-    </form>
-  </dialog>
-  <div id="response"></div>
+        <div class="form-actions">
+          <button type="submit">Отправить</button>
+          <button type="button" class="show-pass-btn" aria-pressed="false" onpointerdown="showPassword()"
+            onpointerup="hidePassword()">Показать пароль</button>
+          <button type="button" id="closeModalBtn">Закрыть</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="response" aria-live="polite"></div>
+  </main>
+
   <script src="lab3.js"></script>
 </body>
 
